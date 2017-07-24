@@ -1,0 +1,416 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1A9A722C1B59A8CC0080D4F2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A9A722B1B59A8CC0080D4F2 /* main.m */; };
+		1A9A722F1B59A8CC0080D4F2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A9A722E1B59A8CC0080D4F2 /* AppDelegate.m */; };
+		1A9A72321B59A8CC0080D4F2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A9A72311B59A8CC0080D4F2 /* ViewController.m */; };
+		1A9A72371B59A8CC0080D4F2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A9A72361B59A8CC0080D4F2 /* Images.xcassets */; };
+		1A9A723A1B59A8CC0080D4F2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A9A72381B59A8CC0080D4F2 /* LaunchScreen.xib */; };
+		D4ED991F1F266C78006333B4 /* libZSDK_API.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D4ED991E1F266C78006333B4 /* libZSDK_API.a */; };
+		D4FA4D901F26577B00700D37 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4FA4D8E1F26577B00700D37 /* Main.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1A9A72401B59A8CC0080D4F2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1A9A721E1B59A8CC0080D4F2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1A9A72251B59A8CC0080D4F2;
+			remoteInfo = MyFirstZebraApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1A9A722A1B59A8CC0080D4F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1A9A722B1B59A8CC0080D4F2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		1A9A722D1B59A8CC0080D4F2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		1A9A722E1B59A8CC0080D4F2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		1A9A72301B59A8CC0080D4F2 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		1A9A72311B59A8CC0080D4F2 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		1A9A72361B59A8CC0080D4F2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		1A9A72391B59A8CC0080D4F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		1A9A723F1B59A8CC0080D4F2 /* MyFirstZebraAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = MyFirstZebraAppTests.xctest; path = "/Users/isvteam/Downloads/ObjectiveC_LinkOS_SDK_iOS_ConnectPrintOverTCP/MyFirstZebraApp/build/Debug-iphoneos/MyFirstZebraAppTests.xctest"; sourceTree = "<absolute>"; };
+		D4ED991D1F266BBB006333B4 /* MyFirstZebraApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyFirstZebraApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4ED991E1F266C78006333B4 /* libZSDK_API.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libZSDK_API.a; path = ../../../../../Applications/link_os_sdk/iOS/v1.3.924/lib/libZSDK_API.a; sourceTree = "<group>"; };
+		D4FA4D8F1F26577B00700D37 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1A9A72231B59A8CC0080D4F2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4ED991F1F266C78006333B4 /* libZSDK_API.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1A9A723C1B59A8CC0080D4F2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1A9A721D1B59A8CC0080D4F2 = {
+			isa = PBXGroup;
+			children = (
+				D4ED991E1F266C78006333B4 /* libZSDK_API.a */,
+				1A9A72281B59A8CC0080D4F2 /* MyFirstZebraApp */,
+				D4ED991D1F266BBB006333B4 /* MyFirstZebraApp.app */,
+			);
+			sourceTree = "<group>";
+		};
+		1A9A72281B59A8CC0080D4F2 /* MyFirstZebraApp */ = {
+			isa = PBXGroup;
+			children = (
+				D4FA4D8E1F26577B00700D37 /* Main.storyboard */,
+				1A9A722D1B59A8CC0080D4F2 /* AppDelegate.h */,
+				1A9A722E1B59A8CC0080D4F2 /* AppDelegate.m */,
+				1A9A72301B59A8CC0080D4F2 /* ViewController.h */,
+				1A9A72311B59A8CC0080D4F2 /* ViewController.m */,
+				1A9A72361B59A8CC0080D4F2 /* Images.xcassets */,
+				1A9A72381B59A8CC0080D4F2 /* LaunchScreen.xib */,
+				1A9A72291B59A8CC0080D4F2 /* Supporting Files */,
+			);
+			path = MyFirstZebraApp;
+			sourceTree = "<group>";
+		};
+		1A9A72291B59A8CC0080D4F2 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1A9A722A1B59A8CC0080D4F2 /* Info.plist */,
+				1A9A722B1B59A8CC0080D4F2 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1A9A72251B59A8CC0080D4F2 /* MyFirstZebraApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1A9A72491B59A8CC0080D4F2 /* Build configuration list for PBXNativeTarget "MyFirstZebraApp" */;
+			buildPhases = (
+				1A9A72221B59A8CC0080D4F2 /* Sources */,
+				1A9A72231B59A8CC0080D4F2 /* Frameworks */,
+				1A9A72241B59A8CC0080D4F2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MyFirstZebraApp;
+			productName = MyFirstZebraApp;
+			productReference = D4ED991D1F266BBB006333B4 /* MyFirstZebraApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1A9A723E1B59A8CC0080D4F2 /* MyFirstZebraAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1A9A724C1B59A8CC0080D4F2 /* Build configuration list for PBXNativeTarget "MyFirstZebraAppTests" */;
+			buildPhases = (
+				1A9A723B1B59A8CC0080D4F2 /* Sources */,
+				1A9A723C1B59A8CC0080D4F2 /* Frameworks */,
+				1A9A723D1B59A8CC0080D4F2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1A9A72411B59A8CC0080D4F2 /* PBXTargetDependency */,
+			);
+			name = MyFirstZebraAppTests;
+			productName = MyFirstZebraAppTests;
+			productReference = 1A9A723F1B59A8CC0080D4F2 /* MyFirstZebraAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1A9A721E1B59A8CC0080D4F2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0640;
+				ORGANIZATIONNAME = ZEBRA;
+				TargetAttributes = {
+					1A9A72251B59A8CC0080D4F2 = {
+						CreatedOnToolsVersion = 6.4;
+					};
+					1A9A723E1B59A8CC0080D4F2 = {
+						CreatedOnToolsVersion = 6.4;
+						TestTargetID = 1A9A72251B59A8CC0080D4F2;
+					};
+				};
+			};
+			buildConfigurationList = 1A9A72211B59A8CC0080D4F2 /* Build configuration list for PBXProject "MyFirstZebraApp" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1A9A721D1B59A8CC0080D4F2;
+			productRefGroup = 1A9A721D1B59A8CC0080D4F2;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1A9A72251B59A8CC0080D4F2 /* MyFirstZebraApp */,
+				1A9A723E1B59A8CC0080D4F2 /* MyFirstZebraAppTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1A9A72241B59A8CC0080D4F2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4FA4D901F26577B00700D37 /* Main.storyboard in Resources */,
+				1A9A723A1B59A8CC0080D4F2 /* LaunchScreen.xib in Resources */,
+				1A9A72371B59A8CC0080D4F2 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1A9A723D1B59A8CC0080D4F2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1A9A72221B59A8CC0080D4F2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A9A72321B59A8CC0080D4F2 /* ViewController.m in Sources */,
+				1A9A722F1B59A8CC0080D4F2 /* AppDelegate.m in Sources */,
+				1A9A722C1B59A8CC0080D4F2 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1A9A723B1B59A8CC0080D4F2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1A9A72411B59A8CC0080D4F2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1A9A72251B59A8CC0080D4F2 /* MyFirstZebraApp */;
+			targetProxy = 1A9A72401B59A8CC0080D4F2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		1A9A72381B59A8CC0080D4F2 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1A9A72391B59A8CC0080D4F2 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		D4FA4D8E1F26577B00700D37 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D4FA4D8F1F26577B00700D37 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1A9A72471B59A8CC0080D4F2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1A9A72481B59A8CC0080D4F2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1A9A724A1B59A8CC0080D4F2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				HEADER_SEARCH_PATHS = /Applications/link_os_sdk/iOS/v1.4.948/lib/include;
+				INFOPLIST_FILE = MyFirstZebraApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = /Applications/link_os_sdk/iOS/v1.4.948/lib;
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		1A9A724B1B59A8CC0080D4F2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				HEADER_SEARCH_PATHS = /Applications/link_os_sdk/iOS/v1.4.948/lib/include;
+				INFOPLIST_FILE = MyFirstZebraApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = /Applications/link_os_sdk/iOS/v1.4.948/lib;
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		1A9A724D1B59A8CC0080D4F2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = MyFirstZebraAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyFirstZebraApp.app/MyFirstZebraApp";
+			};
+			name = Debug;
+		};
+		1A9A724E1B59A8CC0080D4F2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = MyFirstZebraAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyFirstZebraApp.app/MyFirstZebraApp";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1A9A72211B59A8CC0080D4F2 /* Build configuration list for PBXProject "MyFirstZebraApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1A9A72471B59A8CC0080D4F2 /* Debug */,
+				1A9A72481B59A8CC0080D4F2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1A9A72491B59A8CC0080D4F2 /* Build configuration list for PBXNativeTarget "MyFirstZebraApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1A9A724A1B59A8CC0080D4F2 /* Debug */,
+				1A9A724B1B59A8CC0080D4F2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1A9A724C1B59A8CC0080D4F2 /* Build configuration list for PBXNativeTarget "MyFirstZebraAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1A9A724D1B59A8CC0080D4F2 /* Debug */,
+				1A9A724E1B59A8CC0080D4F2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1A9A721E1B59A8CC0080D4F2 /* Project object */;
+}

@@ -1,0 +1,123 @@
+// !$*UTF8*$!
+{
+	1D6058900D05DD3D006BFB54 /* ZSDKDeveloperDemos */ = {
+		activeExec = 0;
+		executables = (
+			4B56AC8911651B41009E7467 /* ZSDKDeveloperDemos */,
+		);
+	};
+	29B97313FDCFA39411CA2CEA /* Project object */ = {
+		activeBuildConfigurationName = Debug;
+		activeExecutable = 4B56AC8911651B41009E7467 /* ZSDKDeveloperDemos */;
+		activeTarget = 1D6058900D05DD3D006BFB54 /* ZSDKDeveloperDemos */;
+		codeSenseManager = 4B56AC9B11651B47009E7467 /* Code sense */;
+		executables = (
+			4B56AC8911651B41009E7467 /* ZSDKDeveloperDemos */,
+		);
+		perUserDictionary = {
+			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					341,
+					20,
+					48,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
+			PBXConfiguration.PBXTargetDataSource.PBXTargetDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					301,
+					60,
+					20,
+					48,
+					43,
+					43,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXTargetDataSource_PrimaryAttribute,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+				);
+			};
+			PBXPerProjectTemplateStateSaveDate = 344272176;
+			PBXWorkspaceStateSaveDate = 344272176;
+		};
+		perUserProjectItems = {
+			4B52CA4411652CC70011A3C4 /* PBXTextBookmark */ = 4B52CA4411652CC70011A3C4 /* PBXTextBookmark */;
+		};
+		sourceControlManager = 4B56AC9A11651B47009E7467 /* Source Control */;
+		userBuildSettings = {
+		};
+	};
+	4B52CA4411652CC70011A3C4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		name = "ImagePrintViewController.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 335;
+		vrLoc = 0;
+	};
+	4B56AC8911651B41009E7467 /* ZSDKDeveloperDemos */ = {
+		isa = PBXExecutable;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		breakpointsEnabled = 0;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		dataTipCustomDataFormattersEnabled = 1;
+		dataTipShowTypeColumn = 1;
+		dataTipSortType = 0;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		dylibVariantSuffix = "";
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = ZSDKDeveloperDemos;
+		showTypeColumn = 0;
+		sourceDirectories = (
+		);
+	};
+	4B56AC9A11651B47009E7467 /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+			repositoryNamesForRoots = {
+				"" = "";
+			};
+		};
+	};
+	4B56AC9B11651B47009E7467 /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+}

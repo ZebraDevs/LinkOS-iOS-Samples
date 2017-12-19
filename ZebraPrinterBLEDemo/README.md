@@ -8,7 +8,7 @@ To enable Bluetooth LE, use one of the following Zebra SGD commands to configure
 * `! U1 setvar "bluetooth.le.controller_mode" "le"`
 * `! U1 setvar "bluetooth.le.controller_mode" "both"`
 
-## Code verview
+## Code overview
 `ZPrinterLEService.h` defines the UUID of services and characteristics as specified in [Link-OS Enviornment Bluetooth Low Energy AppNote](https://www.zebra.com/content/dam/zebra/software/en/application-notes/AppNote-BlueToothLE-v4.pdf). The `ScanBLEZPrinterTableViewController.m`handles scanning, discovering and connections. The Apple iOS Bluetooth LE framework uses asynchronous callbacks to notify the application when a peripheral is found, a service or a characteristic is discovered. `ScanBLEZPrinterTableViewController.m` calls iOS Bluetooth LE framework to initiate scan, discovery and connect, and it implements the corresponding callbacks too.
 
 `ConnectBLEZPrinterViewController.m` handles the UI in `Connected` view. `ScanBLEZPrinterTableViewController.m` communicates with `ConnectBLEZPrinterViewController.m` via Notification Center when the value of a characterstic has been updated.

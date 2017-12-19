@@ -8,6 +8,8 @@ To enable Bluetooth LE, use one of the following Zebra SGD commands to configure
 * `! U1 setvar "bluetooth.le.controller_mode" "le"`
 * `! U1 setvar "bluetooth.le.controller_mode" "both"`
 
+#### Screenshot of the demo
+![Screenshot of the demo](https://github.com/Zebra/LinkOS-iOS-Samples/blob/ZebraPrinterBLEDemo/ZebraPrinterBLEDemo/ZebraPrinterBLEDemo.png)
 
 
 # References

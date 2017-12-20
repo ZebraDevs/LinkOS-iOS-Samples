@@ -1,17 +1,17 @@
 ## Intro
-Zebra printers of ZQ500 series and ZD400 series have both Bluetooth Classic and Low Energy (LE or BLE) capabilities. This ZebraPrinterBLEDemo demonstrates how to scan, connect and send ZPL to a BLE enabled Zebra printer from an iOS device. The Bluetooth LE on Zebra printer acts as a peripheral. A BLE central device needs to connect to the printer first before it starts to discover the services and characteristics.
+Zebra printers of ZQ500 series and ZD400 series have both Bluetooth Classic and Low Energy (LE or BLE) capabilities. This ZebraPrinterBLEDemo demonstrates how to scan, connect, send ZPL to and read data from a BLE enabled Zebra printer on an iOS device. The Bluetooth LE on Zebra printer acts as a peripheral. A BLE central device needs to connect to the printer first before it starts to discover the services and characteristics.
 
-To query if Bluetooth LE is enabled or not on a printer, use Zebra SGD command below through [Zebra Setup Utilities](https://www.zebra.com/us/en/products/software/barcode-printers/zebralink/zebra-setup-utility.html):
+To query if Bluetooth LE is enabled or not on a printer, use Zebra SGD command below with [Zebra Setup Utilities](https://www.zebra.com/us/en/products/software/barcode-printers/zebralink/zebra-setup-utility.html):
 * `! U1 getvar "bluetooth.le.controller_mode"`
 
-To enable Bluetooth LE on a printer, use one of the following Zebra SGD commands to enable the BLE on the printer:
+To enable Bluetooth LE on a printer, use one of the following Zebra SGD commands to enable the BLE on the printer with [Zebra Setup Utilities](https://www.zebra.com/us/en/products/software/barcode-printers/zebralink/zebra-setup-utility.html):
 * `! U1 setvar "bluetooth.le.controller_mode" "le"`
 * `! U1 setvar "bluetooth.le.controller_mode" "both"`
 
 ## Code overview
-`ZPrinterLEService.h` defines the UUID of services and characteristics as specified in [Link-OS Enviornment Bluetooth Low Energy AppNote](https://www.zebra.com/content/dam/zebra/software/en/application-notes/AppNote-BlueToothLE-v4.pdf). The `ScanBLEZPrinterTableViewController.m`handles scanning, discovering and connections. The Apple iOS Bluetooth LE framework uses asynchronous callbacks to notify the application when a peripheral is found, a service or a characteristic is discovered. `ScanBLEZPrinterTableViewController.m` calls iOS Bluetooth LE framework to initiate scan, discovery and connect, and it implements the corresponding callbacks too.
+`ZPrinterLEService.h` defines the UUID of services and characteristics as specified in [Link-OS Enviornment Bluetooth Low Energy AppNote](https://www.zebra.com/content/dam/zebra/software/en/application-notes/AppNote-BlueToothLE-v4.pdf). The `ScanBLEZPrinterTableViewController.m` handles scanning, discovering and connecting. The Apple iOS Bluetooth LE framework uses asynchronous callbacks to notify the application when a peripheral is found, a service or a characteristic is discovered. `ScanBLEZPrinterTableViewController.m` calls iOS Bluetooth LE framework to initiate scan, discover and connect, and it implements the corresponding callbacks too.
 
-`ConnectBLEZPrinterViewController.m` handles the UI in `Connected` view. `ScanBLEZPrinterTableViewController.m` communicates with `ConnectBLEZPrinterViewController.m` via Notification Center when the value of a characterstic has been updated.
+`ConnectBLEZPrinterViewController.m` handles the UI in `Connected` view. `ScanBLEZPrinterTableViewController.m` communicates to `ConnectBLEZPrinterViewController.m` via Notification Center when the value of a characterstic has been updated. There are three types of notifications, `WriteNotification, ReadNotification & DISNotification`, which are all defined in `ZPrinterLEService.h`.
 
 ## Services on Zebra printer
 The Zebra Bluetooth LE enabled printers offer two services, i.e. Device Information Service (DIS, UUID is `0x180A`) and Parser Service (UUID is `38eb4a80-c570-11e3-9507-0002a5d5c51b`). These services cannot be discovered unless the central device has connected to the printer.
@@ -36,7 +36,7 @@ callback, in which we build a list of the discovered peripherals.
 Device Information Service (0x180A) only over the Bluetooth LE. It does not broadcast any other services. 
 
 
-#### Screenshot of the demo
+## Screenshot of the demo
 ![Screenshot of the demo](https://github.com/Zebra/LinkOS-iOS-Samples/blob/ZebraPrinterBLEDemo/ZebraPrinterBLEDemo/ZebraPrinterBLEDemo.png)
 
 

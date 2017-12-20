@@ -47,7 +47,71 @@ Once connected, the iOS BLE framework invokes `(void)centralManager:(CBCentralMa
 // Search only for services that match the UUID of Zebra Printer Service and the UUID of Device Information Service
 [peripheral discoverServices:@[[CBUUID UUIDWithString:ZPRINTER_SERVICE_UUID], [CBUUID UUIDWithString:ZPRINTER_DIS_SERVICE]]];
 ```
+Then we call the following to discover the characteristics in `didDiscoverServices` callback:
+```Objective-C
+// Discover the characteristics of Write-To-Printer and Read-From-Printer.
+// Loop through the newly filled peripheral.services array, just in case there's more than one service.
+for (CBService *service in peripheral.services) {
+    // Discover the characteristics of read from and write to printer
+    if ([service.UUID isEqual:[CBUUID UUIDWithString:ZPRINTER_SERVICE_UUID]]) {
+        [peripheral discoverCharacteristics:@[[CBUUID UUIDWithString:WRITE_TO_ZPRINTER_CHARACTERISTIC_UUID],
+                                              [CBUUID UUIDWithString:READ_FROM_ZPRINTER_CHARACTERISTIC_UUID]] forService:service];
+    } else if ([service.UUID isEqual:[CBUUID UUIDWithString:ZPRINTER_DIS_SERVICE]]) {
+        // Discover the characteristics of Device Information Service (DIS)
+        [peripheral discoverCharacteristics:@[[CBUUID UUIDWithString:ZPRINTER_DIS_CHARAC_MODEL_NAME],
+                                              [CBUUID UUIDWithString:ZPRINTER_DIS_CHARAC_SERIAL_NUMBER],
+                                              [CBUUID UUIDWithString:ZPRINTER_DIS_CHARAC_FIRMWARE_REVISION],
+                                              [CBUUID UUIDWithString:ZPRINTER_DIS_CHARAC_HARDWARE_REVISION],
+                                              [CBUUID UUIDWithString:ZPRINTER_DIS_CHARAC_SOFTWARE_REVISION],
+                                              [CBUUID UUIDWithString:ZPRINTER_DIS_CHARAC_MANUFACTURER_NAME]] forService:service];
+    }
+}
+```
+Once the characteristics are discovered, we need either to read the characteristics for read-only characteristics (DIS) or subscribe to the characteristics for value updates. This is done through the `didDiscoverCharacteristicsForService` callback below.
 
+```Objective-C
+// The characteristics of Zebra Printer Service was discovered. Then we want to subscribe to the characteristics.
+// This lets the peripheral know we want the data it contains.
+- (void)peripheral:(CBPeripheral *)peripheral didDiscoverCharacteristicsForService:(CBService *)service error:(NSError *)error
+{
+    // Deal with errors (if any)
+    if (error) {
+        [self cleanup];
+        return;
+    }
+    
+    // Again, we loop through the array, as there might be multiple characteristics in service.
+    for (CBCharacteristic *characteristic in service.characteristics) {
+        
+        // And check if it's the right one
+        if ([characteristic.UUID isEqual:[CBUUID UUIDWithString:WRITE_TO_ZPRINTER_CHARACTERISTIC_UUID]]) {
+            
+            // WRITE_TO_ZPRINTER_CHARACTERISTIC_UUID is a write-only characteristic
+            
+            // Notify that Write Characteristic has been discovered through the Notification Center
+            [[NSNotificationCenter defaultCenter] postNotificationName:ZPRINTER_WRITE_NOTIFICATION object:self userInfo:@{@"Characteristic":characteristic}];
+            
+        } else if ([characteristic.UUID isEqual:[CBUUID UUIDWithString:READ_FROM_ZPRINTER_CHARACTERISTIC_UUID]]) {
+
+            // Set up notification for value update on "From Printer Data" characteristic, i.e. READ_FROM_ZPRINTER_CHARACTERISTIC_UUID.
+            [peripheral setNotifyValue:YES forCharacteristic:characteristic];
+
+        } else if ([characteristic.UUID isEqual:[CBUUID UUIDWithString:ZPRINTER_DIS_CHARAC_MODEL_NAME]] ||
+                   [characteristic.UUID isEqual:[CBUUID UUIDWithString:ZPRINTER_DIS_CHARAC_SERIAL_NUMBER]] ||
+                   [characteristic.UUID isEqual:[CBUUID UUIDWithString:ZPRINTER_DIS_CHARAC_FIRMWARE_REVISION]] ||
+                   [characteristic.UUID isEqual:[CBUUID UUIDWithString:ZPRINTER_DIS_CHARAC_HARDWARE_REVISION]] ||
+                   [characteristic.UUID isEqual:[CBUUID UUIDWithString:ZPRINTER_DIS_CHARAC_SOFTWARE_REVISION]] ||
+                   [characteristic.UUID isEqual:[CBUUID UUIDWithString:ZPRINTER_DIS_CHARAC_MANUFACTURER_NAME]]) {
+            
+            // These characteristics are read-only characteristics.
+            // Read value for these DIS characteristics
+            [self.selectedPrinter readValueForCharacteristic:characteristic];
+        }
+    }
+    
+    // Once this is complete, we just need to wait for the data to come in or to send ZPL to printer.
+}
+```
 
 ## Screenshot of the demo
 ![Screenshot of the demo](https://github.com/Zebra/LinkOS-iOS-Samples/blob/ZebraPrinterBLEDemo/ZebraPrinterBLEDemo/ZebraPrinterBLEDemo.png)

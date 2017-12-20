@@ -41,6 +41,14 @@ In `viewDidLoad` method in `ConnectBLEZPrinterViewController.m`, we call the fol
 [[self.scanBLEZPrinterTVC centralManager] connectPeripheral:_selectedPrinter options:nil];
 ```
 
+## Discover services and characteristics
+Once connected, the iOS BLE framework invokes `(void)centralManager:(CBCentralManager *)central didConnectPeripheral:(CBPeripheral *)peripheral`, where we call the following to discover the `ZPRINTER_SERVICE_UUID` and `ZPRINTER_DIS_SERVICE` services:
+```Objective-C
+// Search only for services that match the UUID of Zebra Printer Service and the UUID of Device Information Service
+[peripheral discoverServices:@[[CBUUID UUIDWithString:ZPRINTER_SERVICE_UUID], [CBUUID UUIDWithString:ZPRINTER_DIS_SERVICE]]];
+```
+
+
 ## Screenshot of the demo
 ![Screenshot of the demo](https://github.com/Zebra/LinkOS-iOS-Samples/blob/ZebraPrinterBLEDemo/ZebraPrinterBLEDemo/ZebraPrinterBLEDemo.png)
 

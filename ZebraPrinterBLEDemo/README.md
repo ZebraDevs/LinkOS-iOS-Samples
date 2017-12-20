@@ -1,4 +1,4 @@
-## Intro
+## Introduction
 Zebra printers of ZQ500 series and ZD400 series have both Bluetooth Classic and Low Energy (LE or BLE) capabilities. This ZebraPrinterBLEDemo demonstrates how to scan, connect, send ZPL to and read data from a BLE enabled Zebra printer on an iOS device. The Bluetooth LE on Zebra printer acts as a peripheral. A BLE central device needs to connect to the printer first before it starts to discover the services and characteristics.
 
 To query if Bluetooth LE is enabled or not on a printer, use Zebra SGD command below with [Zebra Setup Utilities](https://www.zebra.com/us/en/products/software/barcode-printers/zebralink/zebra-setup-utility.html):

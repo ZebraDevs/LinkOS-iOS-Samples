@@ -11,19 +11,17 @@ To enable Bluetooth LE on a printer, use one of the following Zebra SGD commands
 ## Code overview
 `ZPrinterLEService.h` defines the UUID of services and characteristics as specified in [Link-OS Enviornment Bluetooth Low Energy AppNote](https://www.zebra.com/content/dam/zebra/software/en/application-notes/AppNote-BlueToothLE-v4.pdf). The `ScanBLEZPrinterTableViewController.m` handles scanning, discovering and connecting. The Apple iOS Bluetooth LE framework uses asynchronous callbacks to notify the application when a peripheral is found, a service or a characteristic is discovered. `ScanBLEZPrinterTableViewController.m` calls iOS Bluetooth LE framework to initiate scan, discover and connect, and it implements the corresponding callbacks too.
 
-`ConnectBLEZPrinterViewController.m` handles the UI in `Connected` view. `ScanBLEZPrinterTableViewController.m` communicates to `ConnectBLEZPrinterViewController.m` via Notification Center when the value of a characterstic has been updated. There are three types of notifications, `WriteNotification, ReadNotification & DISNotification`, which are all defined in `ZPrinterLEService.h`.
+`ConnectBLEZPrinterViewController.m` handles the UI in `Connected` view. `ScanBLEZPrinterTableViewController.m` communicates to `ConnectBLEZPrinterViewController.m` via Notification Center when the value of a characterstic has been updated. There are three types of notifications, `WriteNotification, ReadNotification & DISNotification`, which are all defined in `ZPrinterLEService.h`. The `viewDidLoad` in `ConnedtBLEPrinterViewController.m` registers for these notifications.
 
 ## Services on Zebra printer
 The Zebra Bluetooth LE enabled printers offer two services, i.e. Device Information Service (DIS, UUID is `0x180A`) and Parser Service (UUID is `38eb4a80-c570-11e3-9507-0002a5d5c51b`). These services cannot be discovered unless the central device has connected to the printer.
 
 The DIS is a standard service that includes the characteristics of Device Name, Serial Number, Firmware Rrevision, etc. that can be read back. The Parser Service offers two characteristics for getting data from printer (named as `"From Printer Data"`) and for sending data to printer (named as `"To Printer Data"`). 
 
-## Discover the Bluetooth LE on Zebra printers
-The 
+## Discover BLE enabled Zebra printers
+The Bluetooth LE on Zebra printer acts as a peripheral. As a peripheral, the printer advertises its device name through the advertisements. The printer does not advertise any other services. The central device needs to connect to the printer in order to discover services, and then to discover characteristics. 
 
-The Bluetooth LE on Zebra printer acts as a peripheral. As a peripheral, the printer advertises its device name through the advertisements. The printer does not advertise any other services. The central device needs to connect to the printer in order to discover services, and then discover characteristics. 
-
-The central device (an iOS device in our case) initiates a scan to find the peripheral by calling the following.
+The central device (an iOS device in our case) initiates a scan to find the peripheral by calling the following in `(void)centralManagerDidUpdateState:(nonnull CBCentralManager *)central`.
 ```Objective-C
 [self.centralManager scanForPeripheralsWithServices:nil options:@{ CBCentralManagerScanOptionAllowDuplicatesKey : @YES }];
 ```
@@ -31,10 +29,17 @@ Once a peripheral is discovered, the iOS Bluetooth LE framework invokes
 ```Objective-C
 (void)centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)peripheral advertisementData:(NSDictionary *)advertisementData RSSI:(NSNumber *)RSSI
 ```
-callback, in which we build a list of the discovered peripherals.
+callback, in which we build a list of the discovered peripherals based on the RSSI values that fall inot the specified range. From here, we let the user to select a specific printer on the list to connect to.
 
-Device Information Service (0x180A) only over the Bluetooth LE. It does not broadcast any other services. 
+## Connect to a BLE enabled Zebra printer
+In `viewDidLoad` method in `ConnectBLEZPrinterViewController.m`, we call the following to stop scanning and to connect the selected printer.
+```Objective-C
+// Stop scanning
+[[self.scanBLEZPrinterTVC centralManager] stopScan];
 
+// Connect to the selected printer.
+[[self.scanBLEZPrinterTVC centralManager] connectPeripheral:_selectedPrinter options:nil];
+```
 
 ## Screenshot of the demo
 ![Screenshot of the demo](https://github.com/Zebra/LinkOS-iOS-Samples/blob/ZebraPrinterBLEDemo/ZebraPrinterBLEDemo/ZebraPrinterBLEDemo.png)

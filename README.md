@@ -50,7 +50,7 @@ granted to you in this EULA. The Software is protected by copyright and other
 intellectual property laws and treaties. Zebra or its suppliers own the title,
 copyright and other intellectual property rights in the Software. The Software is
 licensed, not sold.
-
+ 
 3. LIMITATIONS ON END USER RIGHTS. You shall not distribute, sublicense, rent, loan,
 lease, export, re-export, resell, ship or divert or cause to be exported,
 re-exported, resold, shipped or diverted, directly or indirectly, the unmodified

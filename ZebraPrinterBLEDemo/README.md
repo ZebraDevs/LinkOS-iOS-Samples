@@ -29,7 +29,7 @@ Once a peripheral is discovered, the iOS Bluetooth LE framework invokes
 ```Objective-C
 (void)centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)peripheral advertisementData:(NSDictionary *)advertisementData RSSI:(NSNumber *)RSSI
 ```
-callback, in which we build a list of the discovered peripherals based on the RSSI values that fall inot the specified range. From here, we let the user to select a specific printer on the list to connect to.
+callback, in which we build a list of the discovered peripherals based on the RSSI values that fall into the specified range. From here, we let the user to select a specific printer on the list to connect to.
 
 ## Connect to a BLE enabled Zebra printer
 In `viewDidLoad` method in `ConnectBLEZPrinterViewController.m`, we call the following to stop scanning and to connect the selected printer.

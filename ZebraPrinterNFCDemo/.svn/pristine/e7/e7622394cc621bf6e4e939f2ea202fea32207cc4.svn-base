@@ -1,0 +1,209 @@
+//
+//  PrinterStatusViewController.m
+//  ZebraPrinterNFCDemo
+//
+//  Created by Zebra ISV Team on 3/28/18.
+//  Copyright © 2018 Zebra. All rights reserved.
+//
+
+#import "PrinterStatusViewController.h"
+#import <ExternalAccessory/ExternalAccessory.h>
+#import "ZebraBTLEConnection.h"
+#import "Util.h"
+
+@interface PrinterStatusViewController () <ZebraBTLEConnectionDelegate>
+
+// BT LE related outlets
+@property (strong, nonatomic) IBOutlet UILabel *lePrinterModel;
+@property (strong, nonatomic) IBOutlet UILabel *lePrinterSerialNumber;
+@property (strong, nonatomic) IBOutlet UILabel *lePrinterHWRev;
+@property (strong, nonatomic) IBOutlet UILabel *lePrinterManufacturer;
+@property (strong, nonatomic) IBOutlet UILabel *lePrinterFWRev;
+@property (strong, nonatomic) IBOutlet UILabel *lePrinterSWRev;
+
+@property (strong, nonatomic) CBCharacteristic *writeCharacteristic;
+@property (strong, nonatomic) NSMutableData    *data;
+
+
+// BT Classic related outlets
+@property (strong, nonatomic) IBOutlet UILabel *btPrinterName;
+@property (strong, nonatomic) IBOutlet UILabel *btPrinterModelNumber;
+@property (strong, nonatomic) IBOutlet UILabel *btPrinterProtocolString;
+@property (strong, nonatomic) IBOutlet UILabel *btPrinterSerialNumber;
+@property (strong, nonatomic) IBOutlet UILabel *btPrinterManufacturer;
+
+@property (nonatomic) BOOL pickerComplete; // BT picker flag
+
+@end
+
+@implementation PrinterStatusViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view.
+    NSLog(@"The printer SN = %@", _printerSN);
+    
+    // Reset BT picker flag
+    _pickerComplete = NO;
+
+    self.navigationController.title = _printerSN;
+    
+    self.navigationItem.title = _printerSN; // Change the title to printer serial number.
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+
+// Called when "Connect with Bluetooth Classic" button is pressed.
+- (IBAction)connectBTClassic:(id)sender {
+    [self checkPrinterStatus:_printerSN];
+}
+
+// Called when "Connect with Bluetooth Low Energy" button is pressed.
+- (IBAction)connectBTLE:(id)sender {
+    // Register for notification on discovery of Write Characteristic
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(discoverWriteCharacteristic:)
+                                                 name:ZPRINTER_WRITE_NOTIFICATION
+                                               object:nil];
+    
+    // Register for notification on data received from Read Characteristic
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(receivedDataFromReadCharacteristic:)
+                                                 name:ZPRINTER_READ_NOTIFICATION
+                                               object:nil];
+    
+    // Register for notification on DIS values received from DIS Characteristic
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(receivedDataFromDISCharacteristic:)
+                                                 name:ZPRINTER_DIS_NOTIFICATION
+                                               object:nil];
+    
+    // Connect to printer
+    [[ZebraBTLEConnection sharedInstance] scanForPrinter:_printerSN];
+}
+
+// This callback is called when WRITE_TO_ZPRINTER_CHARACTERISTIC_UUID is discovered
+- (void)discoverWriteCharacteristic:(NSNotification *) notification {
+    
+    // Set the writeCharacteristic
+    self.writeCharacteristic = [notification userInfo][@"Characteristic"];
+    
+    // Update the title to connected
+    self.title = @"Connected";
+    
+//    // Enable the send button
+//    self.sendButton.enabled = YES;
+}
+
+// This callback is called when data from READ_FROM_ZPRINTER_CHARACTERISTIC_UUID is received.
+- (void)receivedDataFromReadCharacteristic:(NSNotification *) notification {
+    
+    // Extract the data from notification
+    [self.data appendData:[notification userInfo][@"Value"]];
+    
+//    // Display data in statusTextview
+//    [self.statusTextview setText:[[NSString alloc] initWithData:self.data encoding:NSUTF8StringEncoding]];
+//
+//    // Scroll the textview to the bottom.
+//    NSRange bottom = NSMakeRange(self.statusTextview.text.length - 1, 1);
+//    [self.statusTextview scrollRangeToVisible:bottom];
+}
+
+// This callback is called when data from DIS is received.
+- (void)receivedDataFromDISCharacteristic:(NSNotification *) notification {
+    
+    // Extract Characteristic UUID & text
+    NSString *uuid = [notification userInfo][@"Characteristic"];
+    NSData *value = [notification userInfo][@"Value"];
+    NSString *text = [[NSString alloc] initWithData:value encoding:NSUTF8StringEncoding];
+    
+    // Set the corresponding fields
+    if ([uuid isEqual:ZPRINTER_DIS_CHARAC_MODEL_NAME]) {
+        self.lePrinterModel.text = text;
+    } else if ([uuid isEqual:ZPRINTER_DIS_CHARAC_SERIAL_NUMBER]) {
+        self.lePrinterSerialNumber.text = text;
+    } else if ([uuid isEqual:ZPRINTER_DIS_CHARAC_FIRMWARE_REVISION]) {
+        self.lePrinterFWRev.text = text;
+    } else if ([uuid isEqual:ZPRINTER_DIS_CHARAC_HARDWARE_REVISION]) {
+        self.lePrinterHWRev.text = text;
+    } else if ([uuid isEqual:ZPRINTER_DIS_CHARAC_SOFTWARE_REVISION]) {
+        self.lePrinterSWRev.text = text;
+    } else if ([uuid isEqual:ZPRINTER_DIS_CHARAC_MANUFACTURER_NAME]) {
+        self.lePrinterManufacturer.text = text;
+    }
+    
+}
+
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
+
+// Check the Bluetooth printer status, i.e. connected/paired?
+- (void)checkPrinterStatus:(NSString*) printerSN {
+    
+//    // Register for notifications
+//    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+//    [nc addObserver:self selector:@selector(accessoryDidConnect:) name:EAAccessoryDidConnectNotification object:nil];
+//    [nc addObserver:self selector:@selector(accessoryDidDisconnect:) name:EAAccessoryDidDisconnectNotification object:nil];
+
+    // Check if it's already paired before
+    [[EAAccessoryManager sharedAccessoryManager] registerForLocalNotifications];
+    NSArray *accessories = [[EAAccessoryManager sharedAccessoryManager] connectedAccessories];
+    for (EAAccessory *acc in accessories) {
+        if ([acc.name isEqualToString:printerSN]) {
+            NSLog(@"Accessor %@ is already connected", acc.serialNumber);
+            
+            // The printer is already connected
+            if (!_pickerComplete) {
+                // Don't show this alert if the picker complete successfully.
+                [Util showAlert:[printerSN stringByAppendingString:@" is already connected"]
+                      withTitle:@"Alert" withStyle:UIAlertControllerStyleAlert
+                withActionTitle:@"OK" inViewController:self];
+            }
+
+            _pickerComplete = NO; // Reset the picker flag
+
+            // Populate the attributes on UIView
+            self.btPrinterName.text           = acc.name;
+            self.btPrinterModelNumber.text    = acc.modelNumber;
+            self.btPrinterManufacturer.text   = acc.manufacturer;
+            self.btPrinterSerialNumber.text   = acc.serialNumber;
+            self.btPrinterProtocolString.text = acc.protocolStrings[0];
+
+            return;
+        }
+    }
+    
+    // Looks like the printer is not connected. Pop up the Bluetooth picker.
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"self CONTAINS %@", printerSN];
+    [[EAAccessoryManager sharedAccessoryManager] showBluetoothAccessoryPickerWithNameFilter:predicate
+                                                                                 completion:^(NSError *error) {
+        if (error) {
+            NSLog(@"error :%@", error);
+            _pickerComplete = NO; // Reset the picker flag.
+
+            // Show an alert
+            [Util showAlert:([@"Make sure the BT Classic of "
+                              stringByAppendingString:[printerSN stringByAppendingString:@" is enabled and not already connected to another device."]])
+                  withTitle:@"Alert" withStyle:UIAlertControllerStyleAlert
+            withActionTitle:@"OK" inViewController:self];
+        }
+        else{
+            NSLog(@"We made it! Well done!!!");
+            _pickerComplete = YES; // Set the picker flag.
+            [self checkPrinterStatus:_printerSN]; // Call to update the labels.
+        }
+    }];
+}
+
+@end

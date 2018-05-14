@@ -11,13 +11,12 @@
 		D43A6D0B206985B1001618BC /* TagDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D43A6D0A206985B1001618BC /* TagDetailTableViewCell.m */; };
 		D43A6D0E206BE356001618BC /* PrinterStatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D43A6D0D206BE356001618BC /* PrinterStatusViewController.m */; };
 		D487235B207EB14100ED4C08 /* ZebraBTLEConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = D487235A207EB14000ED4C08 /* ZebraBTLEConnection.m */; };
+		D4AABAF6208AE75300315F64 /* ZebraPrinterStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = D4AABAF5208AE75300315F64 /* ZebraPrinterStatus.m */; };
 		D4BC016920604B5E00BF5B1F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D4BC016820604B5E00BF5B1F /* AppDelegate.m */; };
 		D4BC016C20604B5E00BF5B1F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4BC016B20604B5E00BF5B1F /* ViewController.m */; };
 		D4BC017120604B5E00BF5B1F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4BC017020604B5E00BF5B1F /* Assets.xcassets */; };
 		D4BC017420604B5E00BF5B1F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4BC017220604B5E00BF5B1F /* LaunchScreen.storyboard */; };
 		D4BC017720604B5E00BF5B1F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D4BC017620604B5E00BF5B1F /* main.m */; };
-		D4BC018120604B5E00BF5B1F /* ZebraPrinterNFCDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D4BC018020604B5E00BF5B1F /* ZebraPrinterNFCDemoTests.m */; };
-		D4BC018C20604B5E00BF5B1F /* ZebraPrinterNFCDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = D4BC018B20604B5E00BF5B1F /* ZebraPrinterNFCDemoUITests.m */; };
 		D4BC019F2060568D00BF5B1F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4BC019E2060568D00BF5B1F /* Main.storyboard */; };
 		D4BC01A220606AC700BF5B1F /* ScannedTagsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4BC01A120606AC700BF5B1F /* ScannedTagsTableViewController.m */; };
 		D4BC01A520606B2700BF5B1F /* TagDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4BC01A420606B2700BF5B1F /* TagDetailTableViewController.m */; };
@@ -49,6 +48,8 @@
 		D43A6D0D206BE356001618BC /* PrinterStatusViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PrinterStatusViewController.m; sourceTree = "<group>"; };
 		D4872359207EB14000ED4C08 /* ZebraBTLEConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZebraBTLEConnection.h; sourceTree = "<group>"; };
 		D487235A207EB14000ED4C08 /* ZebraBTLEConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZebraBTLEConnection.m; sourceTree = "<group>"; };
+		D4AABAF4208AE75300315F64 /* ZebraPrinterStatus.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZebraPrinterStatus.h; sourceTree = "<group>"; };
+		D4AABAF5208AE75300315F64 /* ZebraPrinterStatus.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZebraPrinterStatus.m; sourceTree = "<group>"; };
 		D4BC016420604B5E00BF5B1F /* ZebraPrinterNFCDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZebraPrinterNFCDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4BC016720604B5E00BF5B1F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D4BC016820604B5E00BF5B1F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -59,11 +60,7 @@
 		D4BC017520604B5E00BF5B1F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D4BC017620604B5E00BF5B1F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D4BC017C20604B5E00BF5B1F /* ZebraPrinterNFCDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZebraPrinterNFCDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D4BC018020604B5E00BF5B1F /* ZebraPrinterNFCDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZebraPrinterNFCDemoTests.m; sourceTree = "<group>"; };
-		D4BC018220604B5E00BF5B1F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D4BC018720604B5E00BF5B1F /* ZebraPrinterNFCDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZebraPrinterNFCDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D4BC018B20604B5E00BF5B1F /* ZebraPrinterNFCDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZebraPrinterNFCDemoUITests.m; sourceTree = "<group>"; };
-		D4BC018D20604B5E00BF5B1F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D4BC0199206052EE00BF5B1F /* ZebraPrinterNFCDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ZebraPrinterNFCDemo.entitlements; sourceTree = "<group>"; };
 		D4BC019E2060568D00BF5B1F /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		D4BC01A020606AC700BF5B1F /* ScannedTagsTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScannedTagsTableViewController.h; sourceTree = "<group>"; };
@@ -101,8 +98,6 @@
 			isa = PBXGroup;
 			children = (
 				D4BC016620604B5E00BF5B1F /* ZebraPrinterNFCDemo */,
-				D4BC017F20604B5E00BF5B1F /* ZebraPrinterNFCDemoTests */,
-				D4BC018A20604B5E00BF5B1F /* ZebraPrinterNFCDemoUITests */,
 				D4BC016520604B5E00BF5B1F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -135,6 +130,8 @@
 				D43A6D0D206BE356001618BC /* PrinterStatusViewController.m */,
 				D4872359207EB14000ED4C08 /* ZebraBTLEConnection.h */,
 				D487235A207EB14000ED4C08 /* ZebraBTLEConnection.m */,
+				D4AABAF4208AE75300315F64 /* ZebraPrinterStatus.h */,
+				D4AABAF5208AE75300315F64 /* ZebraPrinterStatus.m */,
 				D41107E3206C8E470081777D /* Util.h */,
 				D41107E4206C8E470081777D /* Util.m */,
 				D4BC017020604B5E00BF5B1F /* Assets.xcassets */,
@@ -144,24 +141,6 @@
 				D4BC017620604B5E00BF5B1F /* main.m */,
 			);
 			path = ZebraPrinterNFCDemo;
-			sourceTree = "<group>";
-		};
-		D4BC017F20604B5E00BF5B1F /* ZebraPrinterNFCDemoTests */ = {
-			isa = PBXGroup;
-			children = (
-				D4BC018020604B5E00BF5B1F /* ZebraPrinterNFCDemoTests.m */,
-				D4BC018220604B5E00BF5B1F /* Info.plist */,
-			);
-			path = ZebraPrinterNFCDemoTests;
-			sourceTree = "<group>";
-		};
-		D4BC018A20604B5E00BF5B1F /* ZebraPrinterNFCDemoUITests */ = {
-			isa = PBXGroup;
-			children = (
-				D4BC018B20604B5E00BF5B1F /* ZebraPrinterNFCDemoUITests.m */,
-				D4BC018D20604B5E00BF5B1F /* Info.plist */,
-			);
-			path = ZebraPrinterNFCDemoUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -310,6 +289,7 @@
 				D43A6D0E206BE356001618BC /* PrinterStatusViewController.m in Sources */,
 				D487235B207EB14100ED4C08 /* ZebraBTLEConnection.m in Sources */,
 				D4BC01A220606AC700BF5B1F /* ScannedTagsTableViewController.m in Sources */,
+				D4AABAF6208AE75300315F64 /* ZebraPrinterStatus.m in Sources */,
 				D4BC01A520606B2700BF5B1F /* TagDetailTableViewController.m in Sources */,
 				D4BC016920604B5E00BF5B1F /* AppDelegate.m in Sources */,
 				D43A6D0B206985B1001618BC /* TagDetailTableViewCell.m in Sources */,
@@ -321,7 +301,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4BC018120604B5E00BF5B1F /* ZebraPrinterNFCDemoTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,7 +308,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4BC018C20604B5E00BF5B1F /* ZebraPrinterNFCDemoUITests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

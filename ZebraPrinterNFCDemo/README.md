@@ -1,7 +1,7 @@
-## Introduction
+## 1. Introduction
 In iOS 11, Apple introduced the [Core NFC Framework](https://developer.apple.com/documentation/corenfc?language=objc), which enables apps to detect Near Field Communication (NFC) tags. This is great news for developers writing iOS apps to work with Zebra mobile printers, because all Zebra mobile printers are NFC enabled. This makes it easy for apps to obtain the printer's Serial Number to pair with Bluetooth. This ZebraPrinterNFCDemo demonstrates how to read the NFC tags on Zebra mobile printers and how to pair with Bluetooth Classic or connect Bluetooth Low Energy, without going through the settings on the iOS device.
  
-## NFC Tag on Zebra Mobile Printers
+## 2. NFC Tag on Zebra Mobile Printers
 Every Zebra mobile printer is equipped with a passive NFC tag. The tag is located on the right side of the printer and marked by an icon.  The NFC tag is encoded with the following information in a URL format, as an example shown below.
  
 Full URL: http://www.zebra.com/apps/r/nfc?mE=000000000000&mW=&mB=cc78ab3ebae0&c=ZQ320-A0E02T0-001&s=XXZFJ170700336&v=0
@@ -19,8 +19,8 @@ Full URL: http://www.zebra.com/apps/r/nfc?mE=000000000000&mW=&mB=cc78ab3ebae0&c=
  
 On iOS, the Serial Number is used when making a connection to a printer over the Bluetooth.
  
-## Code Overview
-### Scanning NFC Tag
+## 3. Code Overview
+### 3.1. Scanning NFC Tag
 In this demo, we let `ScannedTagsTableViewController` class adapt the `NFCNDEFReaderSessionDelegate` interface and provide implementation to `readerSession:didDetectNDEFs:` and `readerSession:didInvalidateWithError:` delegate functions.
  
 The `NFCNDEFReaderSession` session starts through the action below, triggered by pressing the Scan button.
@@ -122,7 +122,7 @@ When the NFC tag scan completes, the `readerSession:didDetectNDEFs:` delegate fu
     }
 }
 ```
-### Connecting to Bluetooth Classic
+### 3.2. Connecting to Bluetooth Classic
 Connecting to the Bluetooth Classic is handled by `PrinterStatusViewController` class, by using the `showBluetoothAccessoryPickerWithNameFilter:completion:`. The Bluetooth picker filters out other Bluetooth devices by using the Serial Number that was obtained from scanning the NFC tag of the printer.
 ```Objective-C
 // Check the Bluetooth printer status, i.e. connected/paired?
@@ -178,7 +178,7 @@ Connecting to the Bluetooth Classic is handled by `PrinterStatusViewController` 
     }];
 }
 ```
-### Connecting to Bluetooth Low Energy
+### 3.3. Connecting to Bluetooth Low Energy
 Connecting to Bluetooth Low Energy is handled by `ZebraBTLEConnection` class with `ZebraBTLEConnectionDelegate` defined in ` ZebraBTLEConnection.h`. The `ZebraBTLEConnection` class encapsulates the peripheral details of Zebra Bluetooth Low Energy and wraps the CoreBluetooth API.
 ```Objective-C
 // Defines protocols that must be implemented
@@ -205,18 +205,20 @@ Connecting to Bluetooth Low Energy is handled by `ZebraBTLEConnection` class wit
 @end
 ```
 Same as connecting to Bluetooth Classic, we use ` PrinterStatusViewController` to initiate the connection to Bluetooth Low Energy. Therefore, ` PrinterStatusViewController` adapts ` ZebraBTLEConnectionDelegate` and implements the delegate functions defined above.
-### Printer Status Parser
+### 3.4. Printer Status Parser
 In this demo, the `ZebraPrinterStatus` class is provided for parsing the printer status string that is returned through `~HS` ZPL command. The `Check Printer Status with ~HS` button triggers the `~HS` command being sent to the printer over Bluetooth Low Energy. The returned status string is received via `didReceiveUpdateOnZPrinterReadCharacteristic:` delegate function. The `Print Test Label` button sends a “Hello World” barcode ZPL to the printer over Bluetooth Low Energy. Refer to the source code of `ZebraPrinterStatus` class for details on how the status string is parsed.
 ```Objective-C
 // Get the current status of the printer.
 + (ZebraPrinterStatus*) getCurrentStatus: (NSData*)data error:(NSError**) error;
 ```
+
+## 4. Demo in Action
+![Image of ZebraPrinterNFCDemo](https://github.com/Zebra/LinkOS-iOS-Samples/blob/ZebraPrinterNFCDemo/ZebraPrinterNFCDemo/ZebraPrinterNFCDemo.gif)
  
  
  
  
  
- 
 
 
 
@@ -229,7 +231,7 @@ In this demo, the `ZebraPrinterStatus` class is provided for parsing the printer
 
 
 
-## References
+## 5. References
 This ZebraPrinterNFCDemo uses or refers to the following materials:
 * [Active Near Field Communication AppNote](https://www.zebra.com/content/dam/zebra/software/en/application-notes/AppNote-Active_NFC-v5.pdf), by Zebra.
 

@@ -214,24 +214,3 @@ In this demo, the `ZebraPrinterStatus` class is provided for parsing the printer
 
 ## 4. Demo in Action
 ![Image of ZebraPrinterNFCDemo](https://github.com/Zebra/LinkOS-iOS-Samples/blob/ZebraPrinterNFCDemo/ZebraPrinterNFCDemo/ZebraPrinterNFCDemo.gif)
- 
- 
- 
- 
- 
-
-
-
-
-
-
-
-
-
-
-
-
-## 5. References
-This ZebraPrinterNFCDemo uses or refers to the following materials:
-* [Active Near Field Communication AppNote](https://www.zebra.com/content/dam/zebra/software/en/application-notes/AppNote-Active_NFC-v5.pdf), by Zebra.
-

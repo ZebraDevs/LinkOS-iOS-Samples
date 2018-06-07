@@ -6,16 +6,16 @@ Every Zebra mobile printer is equipped with a passive NFC tag. The tag is locate
  
 Full URL: http://www.zebra.com/apps/r/nfc?mE=000000000000&mW=&mB=cc78ab3ebae0&c=ZQ320-A0E02T0-001&s=XXZFJ170700336&v=0
  
-|Keys |Values           |     Explanation     |
-|----:|:----------------|:--------------------|
-|host |www.zebra.com    |                     |
-|path |/apps/r/nfc      |                     |
-|mE   |000000000000     |Ethernet MAC Address |
-|mW   |                 |WiFi MAC Address     |
-|mB   |cc78ab3ebae0     |Bluetooth MAC Address|
-|c    |ZQ320-A0E02T0-001|                     |
-|s    |XXZFJ170700336   |Printer Serial Number|
-|v    |0                |Hardware Version     |
+|Keys |Values           |     Explanation                  |
+|----:|:----------------|:---------------------------------|
+|host |www.zebra.com    |                                  |
+|path |/apps/r/nfc      |                                  |
+|mE   |000000000000     |Ethernet MAC Address              |
+|mW   |                 |WiFi MAC Address                  |
+|mB   |cc78ab3ebae0     |Bluetooth MAC Address             |
+|c    |ZQ320-A0E02T0-001|Printer Configurator (15 digits)  |
+|s    |XXZFJ170700336   |Printer Serial Number (14 digits) |
+|v    |0                |Zebra "URL Record" Version        |
  
 On iOS, the Serial Number is used when making a connection to a printer over the Bluetooth.
  

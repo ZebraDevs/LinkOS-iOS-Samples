@@ -214,3 +214,7 @@ In this demo, the `ZebraPrinterStatus` class is provided for parsing the printer
 
 ## 4. Demo in Action
 ![Image of ZebraPrinterNFCDemo](https://github.com/Zebra/LinkOS-iOS-Samples/blob/ZebraPrinterNFCDemo/ZebraPrinterNFCDemo/ZebraPrinterNFCDemo.gif)
+
+## 5. References
+This ZebraPrinterNFCDemo uses or refers to the following materials:
+* [Print Touch - Printer NFC Details](https://developer.zebra.com/community/home/blog/2018/05/29/print-touch-printer-nfc-details), by Robin West, Zebra.

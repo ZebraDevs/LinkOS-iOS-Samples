@@ -4,16 +4,16 @@ In iOS 11, Apple introduced the [Core NFC Framework](https://developer.apple.com
 ## 2. NFC Tag on Zebra Mobile Printers
 Every Zebra mobile printer is equipped with a passive NFC tag. The tag is located on the right side of the printer and marked by an icon.  The NFC tag is encoded with the following information in a URL format, as an example shown below.
  
-Full URL: http://www.zebra.com/apps/r/nfc?mE=000000000000&mW=&mB=cc78ab3ebae0&c=ZQ320-A0E02T0-001&s=XXZFJ170700336&v=0
+Full URL: http://www.zebra.com/apps/r/nfc?mE=000000000000&mW=&mB=cc78ab3ebae0&c=ZQ320-A0E02T0-00&s=XXZFJ170700336&v=0
  
-|Keys |Values           |     Explanation                  |
+|Keys |Values           |          Explanation             |
 |----:|:----------------|:---------------------------------|
 |host |www.zebra.com    |                                  |
 |path |/apps/r/nfc      |                                  |
 |mE   |000000000000     |Ethernet MAC Address              |
 |mW   |                 |WiFi MAC Address                  |
 |mB   |cc78ab3ebae0     |Bluetooth MAC Address             |
-|c    |ZQ320-A0E02T0-001|Printer Configurator (15 digits)  |
+|c    |ZQ320-A0E02T0-00 |Printer Configurator (15 digits)  |
 |s    |XXZFJ170700336   |Printer Serial Number (14 digits) |
 |v    |0                |Zebra "URL Record" Version        |
  

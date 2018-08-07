@@ -1,7 +1,12 @@
 # LinkOS_SDK license
 ## END USER LICENSE AGREEMENT ##
 **(UNRESTRICTED SOFTWARE)** 
- [link](http://link-os.github.io/Zebra_SDK_EULA.pdf)
+ ZSDK DevDemos [link](https://github.com/Zebra/LinkOS-iOS-Samples/tree/ZSDK_DevDemos)
+ 
+ zebraPrinterBLEDemo[link](https://github.com/Zebra/LinkOS-iOS-Samples/tree/ZebraPrinterBLEDemo)
+ 
+  zebraPrinterNFCDemo[link](https://github.com/Zebra/LinkOS-iOS-Samples/tree/ZebraPrinterNFCDemo)
+
 
 
 **IMPORTANT PLEASE READ CAREFULLY:** This End User License Agreement ("EULA") is a legal

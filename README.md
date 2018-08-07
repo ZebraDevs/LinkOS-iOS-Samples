@@ -1,6 +1,10 @@
 # Link-OS iOS Sample Code 
 Objective-C based sample code for developing printing and encoding apps for iOS. The demos in this repository are stored on separate branches. To navigate to a demo, please click branches.
 
+[ZSDK DevDemos](https://github.com/Zebra/LinkOS-iOS-Samples/tree/ZSDK_DevDemos) 
+[zebraPrinterBLEDemo](https://github.com/Zebra/LinkOS-iOS-Samples/tree/ZebraPrinterBLEDemo) 
+[zebraPrinterNFCDemo](https://github.com/Zebra/LinkOS-iOS-Samples/tree/ZebraPrinterNFCDemo) 
+
 # Notes
 All printer sample code is selectable from the branches on this repository.
 
